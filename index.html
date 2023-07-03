@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="CSS/style.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="main-container">
+        <!-- Sezione calcolo prezzi biglietto -->
+        <div class="wrapper">
+            <h2 class="title">CALCOLA IL PREZZO DEL TUO BIGLIETTO</h2>
+            <div class="up-container">
+               
+                <div class="info" id="info">
+
+                    <!-- info nome e cognome  -->
+                    <div class="name_info">
+                        <h3 class="name_title">Nome Cognome</h3>
+                        <input class="input_info" type="text" name="username" id="" value="">
+                    </div>
+
+                    <!-- info distanza da percorrere  -->
+                    <div class="distance_info">
+                        <h3 class="name_title">Km da percorrere</h3>
+                        
+                        <input id="km" class="input_info"  type="text"  name="distance" value="">
+                    </div>
+
+                    <!-- info età passeggero  -->
+                    <div class="age_info">
+                        <h3>Fascia d'età</h3>
+                        <input class="input_info" type="text" name="age-user" id="age" value="">
+                       <!-- <label  for="age"></label>
+                        <select id="age" class="input_info" name="" >
+                            <option  value="minor">Minorenne</option>
+                            <option value="major">Maggiorenne</option>
+                            <option  value="over">Over</option>
+                        </select> -->
+                    </div> 
+                </div> 
+
+                <!-- bottoni genera e annulla  -->
+                <div class="buttons">
+                    <button class="genera">Genera</button>
+                    <button class="annulla" >Annulla</button>
+                </div>
+            </div>
+
+            <!-- info contenitore inferiore -->
+            <h2 class="title">IL TUO BIGLIETTO</h2>
+            <div class="foot-container">
+                <h2 id="pass-title">DETTAGLI PASSEGGERI</h2>
+                <!-- info generate passeggero  -->
+                <div class="general_info">
+                   
+                    <div class="info_passenger">
+                        <h2 id="dait">NOME PASSEGGERO</h2>
+                        <h4 id="passenger_dait"></h4>
+                    </div>
+
+                    <!-- offerta generata biglietto  -->
+                    <div class="offer">
+                        <h3>Offerta</h3>
+                        <p class="result" id="type_offer"></p>
+                    </div>
+
+                    <!-- info numero carrozza treno  -->
+                    <div class="carriage">
+                        <h3>Carrozza</h3>
+                        <p class="result" id="carrozza"></p>
+                    </div>
+
+                    <!-- info codice CP -->
+                    <div class="cp_code">
+                        <h3>Codice CP</h3>
+                        <p class="result" id="CP"></p>
+                    </div>
+
+                    <!-- info costo del biglietto  -->
+                    <div class="ticket_ammount" >
+                        <h3>Costo biglietto</h3>
+                        <p class="result" id="prezzo"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <script src="JS/script.js"></script>
+</body>
+
+</html>
