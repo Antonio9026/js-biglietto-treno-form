@@ -21,46 +21,58 @@
 const usernameInputElement = document.querySelector("[name='username']");
 
 // numero di chilometri da percorrere parseInt(document.getElementById("inputKm").value)
-const chilometri = document.getElementById("km").value;
+const chilometri = parseInt(document.getElementById("km").value);
 
 // - Età del passeggero
 const ageInput = document.getElementById("age");
 
-
-// calcolo il prezzo del biglietto
-
-let ticketPrice = chilometri * 0.21;
+// discount 
+let discount = 0// calcolo il prezzo del biglietto
 console.log();
 // buttons
 const genera = document.querySelector(".genera")
 const annulla = document.querySelector(".annulla")
 
     genera.addEventListener("click", function () {
-       const username = usernameInputElement.value;
-        console.log(username);
-        const distanza = chilometri.value;
-        console.log(distanza);
-        const age = ageInput.value;
-        console.log(age);
-        document.getElementById("passenger_dait").innerHTML = username;
 
-        // genero numero carrozza
-         document.getElementById("carrozza").innerHTML = Math.floor(Math.random() * 20) + 1;
+//USER INPUT
+const userName = usernameInputElement .value; //Nome e Cognome
+const userKm = chilometri; // il numero di chilometri che vuole percorrere [userKm] 
+const userAge = ageInput.value; // l’età del passeggero [userAge] (parseInt();)
+let ticketPrice = chilometri * 0.21;
+if (userAge === "minor") {
+    discount = 0.20;
+}else if (userAge === "over") {
+    discount = 0.40;
+}else {
+    discount = 0
+}
+    document.getElementById("passenger_dait").innerHTML = userName;
 
-        //  genero codice CP
-        document.getElementById("CP").innerHTML = Math.floor(Math.random() * 99999) + 10000;
+    //    const username = usernameInputElement.value;
+    //     console.log(username);
+    //     const distanza = chilometri.value;
+    //     console.log(distanza);
+    //     const age = ageInput.value;
+    //     console.log(age);
+    //     document.getElementById("passenger_dait").innerHTML = username;
 
-        if (age < 18) {
-            const scontoMin = ticketPrice * 0.20;
-            // console.log(scontoMin.toFixed(2));
+    //     // genero numero carrozza
+       document.getElementById("carrozza").innerHTML = Math.floor(Math.random() * 20) + 1;
+
+    //     //  genero codice CP
+      document.getElementById("CP").innerHTML = Math.floor(Math.random() * 99999) + 10000;
+
+        if (userAge === "minor") {
             //  sottraggo al prezzo prezzo del biglietto intero lo sconto minorenni 
-            let prezzoScontato = ticketPrice - scontoMin;
+           const scontoMinorenne = ticketPrice * discount;
+             prezzoScontato = ticketPrice - scontoMinorenne;
             // console.log(prezzoScontato.toFixed(2));
-            document.getElementById("prezzo").innerHTML = + prezzoScontato.toFixed(2) + " €";
+            document.getElementById("prezzo").innerHTML = prezzoScontato.toFixed(2) + " €";
             // genero tipo di offerta
             document.getElementById("type_offer").innerHTML = "Biglietto offerta";
-        } else if (age >= 65) {
-           const scontoOver65 = ticketPrice * 0.40;
+        } else if (userAge === "over") {
+           const scontoOver65 = ticketPrice * discount;
             // console.log(scontoOver65.toFixed(2));
           prezzoScontato = ticketPrice - scontoOver65;
             // console.log( prezzoScontato.toFixed(2));
@@ -68,7 +80,7 @@ const annulla = document.querySelector(".annulla")
              // genero tipo di offerta
             document.getElementById("type_offer").innerHTML = "Biglietto offerta";
         } else {
-            document.getElementById("prezzo").innerHTML =  ticketPrice.toFixed(2) + " €";
+            document.getElementById("prezzo").innerHTML =  ticketPrice.toFixed(2) - discount + " €";
              // genero tipo di offerta
             document.getElementById("type_offer").innerHTML = "Biglietto standard";
         }
@@ -80,8 +92,8 @@ const annulla = document.querySelector(".annulla")
     function goBack() {
         window.history.go(0);
         usernameInputElement.value = ""
-        chilometri.value = ""
-        age.value = ""
+        chilometri = ""
+        ageInput.value = ""
     }
 
   );
