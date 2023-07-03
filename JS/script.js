@@ -71,7 +71,7 @@ const annulla = document.querySelector(".annulla")
             document.getElementById("prezzo").innerHTML =  ticketPrice.toFixed(2) + " €";
              // genero tipo di offerta
             document.getElementById("type_offer").innerHTML = "Biglietto standard";
-        };
+        }
     });
 
 
@@ -84,5 +84,5 @@ const annulla = document.querySelector(".annulla")
         age.value = ""
     }
 
-  )
+  );
   
